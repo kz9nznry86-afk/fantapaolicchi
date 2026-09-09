@@ -77,17 +77,23 @@
     {"role":"A","name":"Lang","match":"Bologna (C)","p_vote":0.35,"voto":6.1,"ev":5.85,"status":"ROTATION","club":"Napoli"},
     {"role":"A","name":"Giovane","match":"Bologna (C)","p_vote":0.0,"voto":0.0,"ev":0.0,"status":"PANCHINA / ROTAZIONE","club":"Napoli"}
   ],
+  "bench_strategy": {
+    "based_on_module":"4-3-3",
+    "method":"SIMULAZIONE SCENARI DI SOSTITUZIONE",
+    "order":["Spinazzola","Hermoso","Koné Manu","Mina","Lobotka","Thorstvedt","Perrone"],
+    "note":"Ordine costruito simulando gli scenari di mancato voto dei titolari e dei panchinari, rispettando i moduli consentiti e il massimo di tre sostituzioni. P(voto) è trattata come probabilità di disponibilità: se un giocatore alto nell’ordine non prende voto, si passa al successivo; non viene più usato il prodotto rigido Fantapunti attesi × P(voto)."
+  },
   "opponent_prediction": {
-    "name": "AC Ciughina",
-    "venue": "TRASFERTA",
-    "label": "FORMAZIONE AVVERSARIA STIMATA",
-    "module": "4-4-2",
-    "updated_at": "2026-09-09T21:10:00+02:00",
-    "note": "È una previsione per gioco: verrà aggiornata con probabili formazioni, indisponibili e ultime notizie prima della consegna.",
-    "expected_points_before_field": 67.7,
-    "expected_defence_modifier": 1.0,
-    "estimate_quality": "PRELIMINARE",
-    "xi": [
+    "name":"AC Ciughina",
+    "venue":"TRASFERTA",
+    "label":"FORMAZIONE AVVERSARIA STIMATA",
+    "module":"4-4-2",
+    "updated_at":"2026-09-09T21:10:00+02:00",
+    "note":"È una previsione per gioco: verrà aggiornata con probabili formazioni, indisponibili e ultime notizie prima della consegna.",
+    "expected_points_before_field":67.7,
+    "expected_defence_modifier":1.0,
+    "estimate_quality":"PRELIMINARE",
+    "xi":[
       {"role":"P","name":"Roma","club":"Roma"},
       {"role":"D","name":"Haps","club":"Venezia"},
       {"role":"D","name":"Valle","club":"Como"},
@@ -100,7 +106,7 @@
       {"role":"A","name":"Yeboah","club":"Venezia"},
       {"role":"A","name":"Pellegrino","club":"Fiorentina"}
     ],
-    "bench": [
+    "bench":[
       {"role":"A","name":"Krstovic","club":"Atalanta"},
       {"role":"A","name":"Davis","club":"Udinese"},
       {"role":"C","name":"Kessié","club":"Atalanta"},
