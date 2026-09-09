@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "team": "Mainagioia FC",
+    "season": "2026/27",
+    "giornata": 4,
+    "first_match": "Venezia–Fiorentina",
+    "first_match_datetime": "2026-09-11T20:45:00+02:00",
+    "updated_at": "2026-09-08T00:20:00+02:00",
+    "status": "PROVVISORIA"
+  },
+  "rules": {
+    "modules": ["3-4-3","3-5-2","4-3-3","4-4-2","4-5-1","5-3-2","5-4-1"]
+  },
+  "players": [
+    {"role":"P","name":"Atalanta","match":"Cagliari (C)","p_vote":0.99,"voto":6.25,"ev":5.8,"status":"TOP"},
+    {"role":"D","name":"Zappacosta","match":"Cagliari (C)","p_vote":0.93,"voto":6.3,"ev":6.55,"status":"TITOLARE"},
+    {"role":"D","name":"Østigård","match":"Frosinone (C)","p_vote":0.93,"voto":6.25,"ev":6.45,"status":"TITOLARE"},
+    {"role":"D","name":"Spinazzola","match":"Bologna (C)","p_vote":0.78,"voto":6.2,"ev":6.4,"status":"RISCHIO TURNOVER"},
+    {"role":"D","name":"Bernasconi","match":"Cagliari (C)","p_vote":0.87,"voto":6.1,"ev":6.25,"status":"PARTITA FAVOREVOLE"},
+    {"role":"D","name":"Hermoso","match":"Torino (T)","p_vote":0.7,"voto":6.1,"ev":6.15,"status":"RISCHIO TURNOVER"},
+    {"role":"D","name":"Mina","match":"Atalanta (T)","p_vote":0.9,"voto":5.95,"ev":5.95,"status":"PARTITA DIFFICILE"},
+    {"role":"D","name":"Provstgaard","match":"Milan (C)","p_vote":0.8,"voto":6.0,"ev":6.0,"status":"PARTITA DIFFICILE"},
+    {"role":"D","name":"Idzes","match":"Juventus (C)","p_vote":0.92,"voto":5.95,"ev":5.95,"status":"PARTITA DIFFICILE"},
+    {"role":"D","name":"Kempf","match":"Parma (C)","p_vote":0.5,"voto":6.15,"ev":5.85,"status":"BALLOTTAGGIO"},
+    {"role":"C","name":"Zielinski","match":"Udinese (C)","p_vote":0.8,"voto":6.35,"ev":6.9,"status":"BONUS POTENZIALE"},
+    {"role":"C","name":"Mandragora","match":"Venezia (T)","p_vote":0.86,"voto":6.2,"ev":6.6,"status":"PARTITA FAVOREVOLE"},
+    {"role":"C","name":"Modrić","match":"Lazio (T)","p_vote":0.87,"voto":6.35,"ev":6.5,"status":"TITOLARE"},
+    {"role":"C","name":"Koné Manu","match":"Torino (T)","p_vote":0.78,"voto":6.25,"ev":6.35,"status":"RISCHIO TURNOVER"},
+    {"role":"C","name":"Locatelli","match":"Sassuolo (T)","p_vote":0.95,"voto":6.2,"ev":6.35,"status":"TITOLARE"},
+    {"role":"C","name":"Lobotka","match":"Bologna (C)","p_vote":0.86,"voto":6.15,"ev":6.15,"status":"RISCHIO TURNOVER"},
+    {"role":"C","name":"Thorstvedt","match":"Juventus (C)","p_vote":0.48,"voto":6.05,"ev":5.9,"status":"BALLOTTAGGIO"},
+    {"role":"C","name":"Perrone","match":"Parma (C)","p_vote":0.4,"voto":6.05,"ev":5.8,"status":"BALLOTTAGGIO"},
+    {"role":"C","name":"Pisilli","match":"Torino (T)","p_vote":0.35,"voto":6.1,"ev":5.75,"status":"PANCHINA"},
+    {"role":"A","name":"Højlund","match":"Bologna (C)","p_vote":0.84,"voto":6.3,"ev":7.1,"status":"TOP"},
+    {"role":"A","name":"Berardi","match":"Juventus (C)","p_vote":0.8,"voto":6.2,"ev":6.7,"status":"PARTITA DIFFICILE"},
+    {"role":"A","name":"Cambiaghi","match":"Napoli (T)","p_vote":0.9,"voto":6.1,"ev":6.2,"status":"TITOLARE"},
+    {"role":"A","name":"Lucca","match":"Bologna (C)","p_vote":0.38,"voto":6.1,"ev":5.95,"status":"ROTATION"},
+    {"role":"A","name":"Lang","match":"Bologna (C)","p_vote":0.35,"voto":6.1,"ev":5.85,"status":"ROTATION"},
+    {"role":"A","name":"Giovane","match":"Bologna (C)","p_vote":0.0,"voto":0.0,"ev":0.0,"status":"INDISPONIBILE"}
+  ]
+}
