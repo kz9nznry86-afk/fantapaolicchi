@@ -5,8 +5,8 @@
     "giornata": 4,
     "first_match": "Venezia–Fiorentina",
     "first_match_datetime": "2026-09-11T20:45:00+02:00",
-    "updated_at": "2026-09-08T00:20:00+02:00",
-    "status": "PROVVISORIA"
+    "updated_at": "2026-09-09T21:15:00+02:00",
+    "status": "PROVVISORIA · TEST ONLINE OK"
   },
   "rules": {
     "modules": ["3-4-3","3-5-2","4-3-3","4-4-2","4-5-1","5-3-2","5-4-1"]
