@@ -2,46 +2,177 @@
 <html lang="it">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Fantapaolicchi · Mainagioia FC</title>
 <style>
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:#f4f6f8;margin:0;color:#101418}
-.wrap{max-width:1140px;margin:auto;padding:18px}
-.hero{background:#13263d;color:#fff;padding:22px;border-radius:18px}
-.hero h1{margin:0 0 6px}.hero .small{color:#d4dde7}
-.card{background:white;border:1px solid #dfe4ea;border-radius:16px;padding:16px;margin-top:14px}
-button{padding:10px 14px;border:0;border-radius:10px;font-weight:800;cursor:pointer;margin-right:8px}
-.primary{background:#13263d;color:white}
+.wrap{max-width:1140px;margin:auto;padding:18px}.hero{background:#13263d;color:#fff;padding:22px;border-radius:18px}
+.hero h1{margin:0 0 6px}.hero .small{color:#d4dde7}.card{background:#fff;border:1px solid #dfe4ea;border-radius:16px;padding:16px;margin-top:14px}
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.kpi{background:#f8fafc;padding:12px;border-radius:12px}
 .v{font-size:22px;font-weight:900}.small{color:#66707a;font-size:12px}table{width:100%;border-collapse:collapse}
 td,th{padding:8px;border-bottom:1px solid #e5e7eb;text-align:left}.num{text-align:right}
 .lineup{font-size:18px;line-height:1.6;background:#eaf7ef;border-left:5px solid #0b7a3d;padding:14px;border-radius:12px}
-.altgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}.altcard{border:1px solid #dfe4ea;border-radius:14px;padding:14px;background:#fff}.altcard.best{border:2px solid #0b7a3d;background:#f3fbf6}.altcard h3{margin:0 0 6px}
-.rival{background:#fff7e6;border-left:5px solid #d97706;padding:15px;border-radius:12px}.teamline{font-size:20px;font-weight:900;margin:4px 0 8px}.badge{display:inline-block;background:#13263d;color:#fff;border-radius:999px;padding:5px 9px;font-size:12px;font-weight:800}.club{color:#66707a;font-weight:600}.scroll{overflow-x:auto}
+.altgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}.altcard{border:1px solid #dfe4ea;border-radius:14px;padding:14px;background:#fff}
+.altcard.best{border:2px solid #0b7a3d;background:#f3fbf6}.altcard h3{margin:0 0 6px}
+.rival{background:#fff7e6;border-left:5px solid #d97706;padding:15px;border-radius:12px}.teamline{font-size:20px;font-weight:900;margin:4px 0 8px}
+.badge{display:inline-block;background:#13263d;color:#fff;border-radius:999px;padding:5px 9px;font-size:12px;font-weight:800}.club{color:#66707a;font-weight:600}.scroll{overflow-x:auto}
+.error{background:#fff0f0;border-left:5px solid #b91c1c;padding:12px;border-radius:10px}
 @media(max-width:800px){.altgrid{grid-template-columns:1fr}}@media(max-width:700px){.kpis{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="hero"><h1>MAINAGIOIA FC · Formazione dinamica</h1><div class="small" id="syncstatus">Sincronizzazione dati…</div><div id="meta"></div></div>
-  <div class="card"><button class="primary" onclick="aggiornaOnline()">AGGIORNA DATI ONLINE</button><span class="small">L'app controlla comunque gli aggiornamenti automaticamente ogni 15 minuti.</span></div>
-  <div class="card"><h2>La sfida Fantapaolicchi</h2><div id="opponentBox" class="rival"></div></div>
-  <div class="card"><h2>Formazione da schierare</h2><div id="lineup" class="lineup"></div><div class="kpis"><div class="kpi"><div class="v" id="total"></div><div class="small">PUNTI TOTALI ATTESI</div></div><div class="kpi"><div class="v" id="bonus"></div><div class="small">CORRETTORE PREVISTO</div></div><div class="kpi"><div class="v" id="avg"></div><div class="small">MEDIA DIFESA PREVISTA</div></div><div class="kpi"><div class="v" id="risk"></div><div class="small">RISCHIO FORMAZIONE</div></div></div></div>
-  <div class="card"><h2>Confronto moduli</h2><div class="scroll"><table><thead><tr><th>#</th><th>Modulo</th><th class="num">Giocatori</th><th class="num">Correttore</th><th class="num">Totale</th></tr></thead><tbody id="mods"></tbody></table></div></div>
-  <div class="card"><h2>Formazioni alternative complete</h2><p class="small">Le migliori cinque soluzioni ordinate per fantapunteggio totale atteso.</p><div id="altlineups" class="altgrid"></div></div>
+  <div class="hero">
+    <h1>MAINAGIOIA FC · Formazione dinamica</h1>
+    <div class="small" id="syncstatus">Sincronizzazione dati…</div>
+    <div class="small"><b>Versione 3.2</b> · aggiornamento automatico · nessun file da importare</div>
+    <div id="meta"></div>
+  </div>
+
+  <div class="card">
+    <h2>La sfida Fantapaolicchi</h2>
+    <div id="opponentBox" class="rival"></div>
+  </div>
+
+  <div class="card">
+    <h2>Formazione da schierare</h2>
+    <div id="lineup" class="lineup">Caricamento…</div>
+    <div class="kpis">
+      <div class="kpi"><div class="v" id="total">—</div><div class="small">PUNTI TOTALI ATTESI</div></div>
+      <div class="kpi"><div class="v" id="bonus">—</div><div class="small">CORRETTORE PREVISTO</div></div>
+      <div class="kpi"><div class="v" id="avg">—</div><div class="small">MEDIA DIFESA PREVISTA</div></div>
+      <div class="kpi"><div class="v" id="risk">—</div><div class="small">RISCHIO FORMAZIONE</div></div>
+    </div>
+  </div>
+
+  <div class="card"><h2>Confronto moduli</h2><div class="scroll"><table>
+    <thead><tr><th>#</th><th>Modulo</th><th class="num">Giocatori</th><th class="num">Correttore</th><th class="num">Totale</th></tr></thead>
+    <tbody id="mods"></tbody>
+  </table></div></div>
+
+  <div class="card">
+    <h2>Formazioni alternative complete</h2>
+    <p class="small">Le migliori cinque soluzioni ordinate per fantapunteggio totale atteso.</p>
+    <div id="altlineups" class="altgrid"></div>
+  </div>
+
   <div class="card"><h2>Panchina ordinata</h2><div id="bench"></div></div>
-  <div class="card"><h2>Rosa e indicatori</h2><div class="scroll"><table><thead><tr><th>R</th><th>Giocatore</th><th>Squadra Serie A</th><th>Partita</th><th class="num">P(voto)</th><th class="num">Voto att.</th><th class="num">EV</th><th>Stato</th></tr></thead><tbody id="roster"></tbody></table></div></div>
+
+  <div class="card"><h2>Rosa e indicatori</h2><div class="scroll"><table>
+    <thead><tr><th>R</th><th>Giocatore</th><th>Squadra Serie A</th><th>Partita</th><th class="num">P(voto)</th><th class="num">Voto att.</th><th class="num">EV</th><th>Stato</th></tr></thead>
+    <tbody id="roster"></tbody>
+  </table></div></div>
 </div>
+
 <script>
-let DATA={"meta":{"team":"Mainagioia FC","season":"2026/27","serie_a_giornata":4,"fanta_giornata":1,"first_match":"Venezia–Fiorentina","first_match_datetime":"2026-09-11T20:45:00+02:00","updated_at":"2026-09-09T21:10:00+02:00","status":"PROVVISORIA · AGGIORNAMENTO AUTOMATICO ATTIVO"},"rules":{"modules":["3-6-1","3-5-2","3-4-3","4-5-1","4-4-2","4-3-3","5-4-1","5-3-2","6-3-1"]},"schedule":[],"players":[],"opponent_prediction":{}};
-function fmt(x){return Number(x).toFixed(2).replace('.',',')}
+let DATA={meta:{},rules:{modules:[]},schedule:[],players:[],opponent_prediction:{}};
+
+function fmt(x){return Number(x||0).toFixed(2).replace('.',',')}
 function modBonus(x){if(x>=7&&x<7.5)return 6;if(x>=6.5&&x<7)return 3;if(x>=6&&x<6.5)return 1;return 0}
-function counts(m){let a=m.split('-').map(Number);return {P:1,D:a[0],C:a[1],A:a[2]}}
+function counts(m){const a=m.split('-').map(Number);return {P:1,D:a[0],C:a[1],A:a[2]}}
 function nm(p){return `${p.name} <span class="club">(${p.club||'—'})</span>`}
-function pick(m){let c=counts(m),chosen={};for(let r of ['P','D','C','A'])chosen[r]=DATA.players.filter(p=>p.role===r).sort((a,b)=>(b.ev*b.p_vote)-(a.ev*a.p_vote)).slice(0,c[r]);let all=[...chosen.P,...chosen.D,...chosen.C,...chosen.A],pev=all.reduce((s,p)=>s+p.ev,0),avg=0,bonus=0;if(c.D>=4&&chosen.P.length){let ds=[...chosen.D].sort((a,b)=>b.voto-a.voto).slice(0,3);avg=(chosen.P[0].voto+ds.reduce((s,p)=>s+p.voto,0))/4;bonus=modBonus(avg)}let vp=all.length?all.reduce((s,p)=>s+p.p_vote,0)/11:0;return {m,chosen,all,pev,avg,bonus,total:pev+bonus,vp}}
-function renderOpponent(){const fg=DATA.meta.fanta_giornata;const s=(DATA.schedule||[]).find(x=>x.fanta_giornata===fg);const pred=DATA.opponent_prediction||{};const opp=(s&&s.opponent)||pred.name||'Da definire';const home=s?s.home:(pred.venue==='CASA');const fixture=home?`MAINAGIOIA FC – ${opp}`:`${opp} – MAINAGIOIA FC`;let h='';if(pred.name===opp&&Array.isArray(pred.xi)&&pred.xi.length){const byRole=r=>pred.xi.filter(x=>x.role===r).map(x=>`${x.name} <span class="club">(${x.club})</span>`).join(' – ');h=`<div class="teamline">${fixture}</div><span class="badge">${pred.label||'FORMAZIONE AVVERSARIA STIMATA'}</span><p><b>Modulo che prevedo: ${pred.module||'—'}</b></p><p><b>P:</b> ${byRole('P')}<br><b>D:</b> ${byRole('D')}<br><b>C:</b> ${byRole('C')}<br><b>A:</b> ${byRole('A')}</p><div class="small">${pred.note||''}<br>Aggiornata: ${pred.updated_at?new Date(pred.updated_at).toLocaleString('it-IT'):'—'}</div>`}else{h=`<div class="teamline">${fixture}</div><p><b>Formazione avversaria:</b> previsione non ancora aggiornata per questa giornata.</p>`}document.getElementById('opponentBox').innerHTML=h}
-function recalc(){if(!DATA.players||!DATA.players.length)return;let rs=DATA.rules.modules.map(pick).sort((a,b)=>b.total-a.total),b=rs[0],c=b.chosen;document.getElementById('meta').innerHTML=`Serie A: <b>${DATA.meta.serie_a_giornata}ª giornata</b> · Fantapaolicchi: <b>${DATA.meta.fanta_giornata}ª giornata</b> · primo anticipo ${DATA.meta.first_match} · aggiornato ${new Date(DATA.meta.updated_at).toLocaleString('it-IT')} · <b>${DATA.meta.status}</b>`;renderOpponent();document.getElementById('lineup').innerHTML=`<b>${b.m}</b><br>${c.P.map(nm).join(' – ')}<br>${c.D.map(nm).join(' – ')}<br>${c.C.map(nm).join(' – ')}<br>${c.A.map(nm).join(' – ')}`;document.getElementById('total').textContent=fmt(b.total);document.getElementById('bonus').textContent='+'+b.bonus;document.getElementById('avg').textContent=b.avg?fmt(b.avg):'—';document.getElementById('risk').textContent=b.vp>=.9?'BASSO':b.vp>=.8?'MEDIO':'ALTO';document.getElementById('mods').innerHTML=rs.slice(0,5).map((r,i)=>`<tr><td>${i+1}</td><td><b>${r.m}</b></td><td class="num">${fmt(r.pev)}</td><td class="num">+${r.bonus}</td><td class="num"><b>${fmt(r.total)}</b></td></tr>`).join('');document.getElementById('altlineups').innerHTML=rs.slice(0,5).map((r,i)=>{const c=r.chosen,delta=b.total-r.total;return `<div class="altcard ${i===0?'best':''}"><h3>${i+1}ª · ${r.m}</h3><div><b>Totale atteso: ${fmt(r.total)}</b> · Correttore: +${r.bonus}</div><div class="small">Distacco dalla migliore: ${i===0?'0,00':'-'+fmt(delta)}</div><p><b>P:</b> ${c.P.map(nm).join(' – ')}<br><b>D:</b> ${c.D.map(nm).join(' – ')}<br><b>C:</b> ${c.C.map(nm).join(' – ')}<br><b>A:</b> ${c.A.map(nm).join(' – ')}</p></div>`}).join('');let sel=new Set(b.all.map(x=>x.name));let bench=DATA.players.filter(p=>!sel.has(p.name)&&p.p_vote>0).sort((a,b)=>(b.ev*b.p_vote)-(a.ev*a.p_vote)).slice(0,7);document.getElementById('bench').innerHTML=bench.map((p,i)=>`<p><b>${i+1}. ${p.name}</b> <span class="club">(${p.club})</span> · ${p.role} · ${p.match} · EV ${fmt(p.ev)}</p>`).join('');document.getElementById('roster').innerHTML=DATA.players.map(p=>`<tr><td>${p.role}</td><td><b>${p.name}</b></td><td>${p.club||'—'}</td><td>${p.match}</td><td class="num">${Math.round(p.p_vote*100)}%</td><td class="num">${p.voto?fmt(p.voto):'—'}</td><td class="num">${fmt(p.ev)}</td><td>${p.status}</td></tr>`).join('')}
-const REMOTE_DATA_URL='https://raw.githubusercontent.com/kz9nznry86-afk/fantapaolicchi/main/dati_giornata.json';async function aggiornaOnline(){const el=document.getElementById('syncstatus');if(el)el.textContent='Controllo aggiornamenti online…';try{const r=await fetch(REMOTE_DATA_URL+'?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);DATA=await r.json();localStorage.setItem('fanta_data',JSON.stringify(DATA));recalc();if(el)el.textContent='Dati online aggiornati automaticamente'}catch(e){try{let saved=localStorage.getItem('fanta_data');if(saved)DATA=JSON.parse(saved)}catch(_){}recalc();if(el)el.textContent='Offline: uso ultimo aggiornamento disponibile'}}aggiornaOnline();setInterval(aggiornaOnline,15*60*1000);
+
+function pick(m){
+  const c=counts(m),chosen={};
+  for(const r of ['P','D','C','A']){
+    chosen[r]=DATA.players.filter(p=>p.role===r).sort((a,b)=>(b.ev*b.p_vote)-(a.ev*a.p_vote)).slice(0,c[r]);
+  }
+  const all=[...chosen.P,...chosen.D,...chosen.C,...chosen.A];
+  const pev=all.reduce((s,p)=>s+(p.ev||0),0);
+  let avg=0,bonus=0;
+  if(c.D>=4 && chosen.P.length){
+    const ds=[...chosen.D].sort((a,b)=>(b.voto||0)-(a.voto||0)).slice(0,3);
+    avg=((chosen.P[0].voto||0)+ds.reduce((s,p)=>s+(p.voto||0),0))/4;
+    bonus=modBonus(avg);
+  }
+  const vp=all.length?all.reduce((s,p)=>s+(p.p_vote||0),0)/11:0;
+  return {m,chosen,all,pev,avg,bonus,total:pev+bonus,vp};
+}
+
+function renderOpponent(){
+  const fg=DATA.meta.fanta_giornata;
+  const s=(DATA.schedule||[]).find(x=>x.fanta_giornata===fg);
+  const pred=DATA.opponent_prediction||{};
+  const opp=(s&&s.opponent)||pred.name||'Da definire';
+  const home=s?s.home:(pred.venue==='CASA');
+  const fixture=home?`MAINAGIOIA FC – ${opp}`:`${opp} – MAINAGIOIA FC`;
+  if(pred.name===opp && Array.isArray(pred.xi) && pred.xi.length){
+    const byRole=r=>pred.xi.filter(x=>x.role===r).map(x=>x.name).join(' – ');
+    document.getElementById('opponentBox').innerHTML=
+      `<div class="teamline">${fixture}</div>
+       <span class="badge">${pred.label||'FORMAZIONE AVVERSARIA STIMATA'}</span>
+       <p><b>Modulo che prevedo: ${pred.module||'—'}</b></p>
+       <p><b>P:</b> ${byRole('P')}<br><b>D:</b> ${byRole('D')}<br><b>C:</b> ${byRole('C')}<br><b>A:</b> ${byRole('A')}</p>
+       <div class="small">${pred.note||''}<br>Aggiornata: ${pred.updated_at?new Date(pred.updated_at).toLocaleString('it-IT'):'—'}</div>`;
+  } else {
+    document.getElementById('opponentBox').innerHTML=
+      `<div class="teamline">${fixture}</div><p><b>Formazione avversaria:</b> previsione non ancora aggiornata per questa giornata.</p>`;
+  }
+}
+
+function recalc(){
+  if(!DATA.players||!DATA.players.length){
+    document.getElementById('lineup').innerHTML='<div class="error">Dati non disponibili.</div>'; return;
+  }
+  const rs=(DATA.rules.modules||[]).map(pick).sort((a,b)=>b.total-a.total);
+  const b=rs[0],c=b.chosen;
+  document.getElementById('meta').innerHTML=
+    `Serie A: <b>${DATA.meta.serie_a_giornata||'—'}ª giornata</b> · Fantapaolicchi: <b>${DATA.meta.fanta_giornata||'—'}ª giornata</b> · primo anticipo ${DATA.meta.first_match||'—'} · aggiornato ${DATA.meta.updated_at?new Date(DATA.meta.updated_at).toLocaleString('it-IT'):'—'} · <b>${DATA.meta.status||''}</b>`;
+  renderOpponent();
+  document.getElementById('lineup').innerHTML=
+    `<b>${b.m}</b><br>${c.P.map(nm).join(' – ')}<br>${c.D.map(nm).join(' – ')}<br>${c.C.map(nm).join(' – ')}<br>${c.A.map(nm).join(' – ')}`;
+  document.getElementById('total').textContent=fmt(b.total);
+  document.getElementById('bonus').textContent='+'+b.bonus;
+  document.getElementById('avg').textContent=b.avg?fmt(b.avg):'—';
+  document.getElementById('risk').textContent=b.vp>=.9?'BASSO':b.vp>=.8?'MEDIO':'ALTO';
+
+  document.getElementById('mods').innerHTML=rs.slice(0,5).map((r,i)=>
+    `<tr><td>${i+1}</td><td><b>${r.m}</b></td><td class="num">${fmt(r.pev)}</td><td class="num">+${r.bonus}</td><td class="num"><b>${fmt(r.total)}</b></td></tr>`
+  ).join('');
+
+  document.getElementById('altlineups').innerHTML=rs.slice(0,5).map((r,i)=>{
+    const c=r.chosen,delta=b.total-r.total;
+    return `<div class="altcard ${i===0?'best':''}">
+      <h3>${i+1}ª · ${r.m}</h3>
+      <div><b>Totale atteso: ${fmt(r.total)}</b> · Correttore: +${r.bonus}</div>
+      <div class="small">Distacco dalla migliore: ${i===0?'0,00':'-'+fmt(delta)}</div>
+      <p><b>P:</b> ${c.P.map(nm).join(' – ')}<br><b>D:</b> ${c.D.map(nm).join(' – ')}<br><b>C:</b> ${c.C.map(nm).join(' – ')}<br><b>A:</b> ${c.A.map(nm).join(' – ')}</p>
+    </div>`;
+  }).join('');
+
+  const sel=new Set(b.all.map(x=>x.name));
+  const bench=DATA.players.filter(p=>!sel.has(p.name)&&p.p_vote>0).sort((a,b)=>(b.ev*b.p_vote)-(a.ev*a.p_vote)).slice(0,7);
+  document.getElementById('bench').innerHTML=bench.map((p,i)=>
+    `<p><b>${i+1}. ${p.name}</b> <span class="club">(${p.club||'—'})</span> · ${p.role} · ${p.match} · EV ${fmt(p.ev)}</p>`
+  ).join('');
+
+  document.getElementById('roster').innerHTML=DATA.players.map(p=>
+    `<tr><td>${p.role}</td><td><b>${p.name}</b></td><td>${p.club||'—'}</td><td>${p.match}</td><td class="num">${Math.round((p.p_vote||0)*100)}%</td><td class="num">${p.voto?fmt(p.voto):'—'}</td><td class="num">${fmt(p.ev)}</td><td>${p.status||''}</td></tr>`
+  ).join('');
+}
+
+const REMOTE_DATA_URL='./dati_giornata.json';
+async function aggiornaOnline(){
+  const el=document.getElementById('syncstatus');
+  if(el)el.textContent='Controllo aggiornamenti online…';
+  try{
+    const r=await fetch(REMOTE_DATA_URL+'?v='+Date.now(),{cache:'no-store'});
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    DATA=await r.json();
+    localStorage.setItem('fanta_data',JSON.stringify(DATA));
+    recalc();
+    if(el)el.textContent='Dati online aggiornati automaticamente';
+  }catch(e){
+    try{const saved=localStorage.getItem('fanta_data');if(saved)DATA=JSON.parse(saved)}catch(_){}
+    recalc();
+    if(el)el.textContent='Offline: uso ultimo aggiornamento disponibile';
+  }
+}
+aggiornaOnline();
+setInterval(aggiornaOnline,5*60*1000);
 </script>
 </body>
 </html>
