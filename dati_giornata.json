@@ -10,17 +10,7 @@
     "status": "PROVVISORIA · AGGIORNAMENTO AUTOMATICO ATTIVO"
   },
   "rules": {
-    "modules": [
-      "3-6-1",
-      "3-5-2",
-      "3-4-3",
-      "4-5-1",
-      "4-4-2",
-      "4-3-3",
-      "5-4-1",
-      "5-3-2",
-      "6-3-1"
-    ]
+    "modules": ["3-6-1","3-5-2","3-4-3","4-5-1","4-4-2","4-3-3","5-4-1","5-3-2","6-3-1"]
   },
   "schedule": [
     {"fanta_giornata":1,"opponent":"AC Ciughina","home":false},
@@ -94,6 +84,9 @@
     "module": "4-4-2",
     "updated_at": "2026-09-09T21:10:00+02:00",
     "note": "È una previsione per gioco: verrà aggiornata con probabili formazioni, indisponibili e ultime notizie prima della consegna.",
+    "expected_points_before_field": 67.7,
+    "expected_defence_modifier": 1.0,
+    "estimate_quality": "PRELIMINARE",
     "xi": [
       {"role":"P","name":"Roma","club":"Roma"},
       {"role":"D","name":"Haps","club":"Venezia"},
