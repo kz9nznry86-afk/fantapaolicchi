@@ -1,0 +1,30 @@
+{
+  "fanta_giornata": 1,
+  "opponent": "AC Ciughina",
+  "received_at": "2026-09-11T20:07:00+02:00",
+  "source": "formazione comunicata dall'utente",
+  "status": "FORMAZIONE AVVERSARIA COMUNICATA",
+  "module": "4-3-3",
+  "xi": [
+    {"role":"P","name":"Roma"},
+    {"role":"D","name":"Akanji"},
+    {"role":"D","name":"Celik"},
+    {"role":"D","name":"Kamara"},
+    {"role":"D","name":"Valle"},
+    {"role":"C","name":"Baturina"},
+    {"role":"C","name":"Kessié"},
+    {"role":"C","name":"Moreira"},
+    {"role":"A","name":"Davis"},
+    {"role":"A","name":"Krstovic"},
+    {"role":"A","name":"Pellegrino"}
+  ],
+  "bench": [
+    {"role":"A","name":"Vitinha"},
+    {"role":"A","name":"Yeboah"},
+    {"role":"C","name":"Schmid"},
+    {"role":"D","name":"Kristensen"},
+    {"role":"D","name":"Obert"},
+    {"role":"D","name":"Obrador"},
+    {"role":"C","name":"Basic"}
+  ]
+}
