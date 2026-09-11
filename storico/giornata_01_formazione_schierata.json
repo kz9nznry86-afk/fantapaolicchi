@@ -1,0 +1,15 @@
+{
+  "team": "Mainagioia FC",
+  "fanta_giornata": 1,
+  "serie_a_giornata": 4,
+  "submitted_lineup": {
+    "module": "4-4-2",
+    "P": ["Atalanta"],
+    "D": ["Zappacosta", "Østigård", "Spinazzola", "Bernasconi"],
+    "C": ["Zielinski", "Mandragora", "Modrić", "Pisilli"],
+    "A": ["Højlund", "Berardi"],
+    "bench": ["Hermoso", "Perrone", "Cambiaghi", "Lobotka", "Provstgaard", "Idzes", "Lucca"]
+  },
+  "status": "FORMAZIONE UFFICIALMENTE SCHIERATA DALL'UTENTE",
+  "note": "Questa formazione prevale come riferimento per il consuntivo post-giornata rispetto a qualsiasi formazione teorica generata successivamente dal modello."
+}
